@@ -1,9 +1,16 @@
-import express from "express";
-import { connectToDB } from './database/database.js';
-import urlRoute from './routes/url.js';
+const express= require("express");
+const {connectToDB} = require("./database/database.js")
+const urlRoute= require("./routes/url")
+const getRoute= require("./routes/geturl.js");
+const cors = require('cors');
 const app = express();
-import dotenv from 'dotenv';
+const dotenv= require('dotenv');
 dotenv.config();
+app.use(cors());
+app.use(express.json()); 
+app.use("/url", urlRoute);
+app.use("/",getRoute);
+
 app.get("/", (req, res) => {
   res.send("Welcome to URL shortener");
 });

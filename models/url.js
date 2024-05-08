@@ -1,4 +1,4 @@
-import mongoose, { Schema, model } from "mongoose";
+const {Schema, model} =require("mongoose")
 const urlSchema = new Schema(
   {
     shortID: {
@@ -12,7 +12,7 @@ const urlSchema = new Schema(
     },
     visitHistory: [
       {
-        timeStanp: {
+        timestamp: {
           type: Number,
         },
       },
@@ -22,4 +22,4 @@ const urlSchema = new Schema(
 );
 
 const URL = model("url", urlSchema);
-module.export = URL;
+module.exports = URL;

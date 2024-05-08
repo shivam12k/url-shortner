@@ -1,7 +1,8 @@
-import express from "express";
+const express= require('express');
 const router = express.Router();
-import { handleGenrateNewURL } from "../createUrl.js";
-console.log(handleUrl);
+const {handleGenrateNewURL}= require('../controllers/createUrl')
 router.post("/", handleGenrateNewURL);
 
 module.exports = router;
+
+

@@ -1,10 +1,11 @@
-import mongoose from "mongoose";
+const mongoose = require("mongoose");
+
 async function connectToDB() {
   try {
-    await mongoose.connect(process.env.MONGODB_URI, { dbName: 'urlShortner' });
-    console.log("connected to database");
+    await mongoose.connect(process.env.MONGODB_URI, { dbName: 'urlShortener' });
+    console.log("Connected to database");
   } catch (error) {
     console.log(error.message);
   }
 }
-export { connectToDB };
+module.exports={connectToDB}
